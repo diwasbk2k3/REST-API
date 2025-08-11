@@ -31,4 +31,17 @@ app.post("/api/send-email/:name/:receiver", (req, res) => {
 app.listen(4000, () => {
     console.log("server is runnning at the port 4000.");
 
+
 })
+
+
+
+
+
+
+/*
+{
+  "subject": "API Email Testing - Service Verification",
+  "html": "<div style=\"font-family: Arial, sans-serif; color: #333; padding: 20px;\"><h2 style=\"color: #4CAF50;\">Backend API Email Service</h2><p>This is a test email sent via our <b>Backend API Email Service</b> to verify that the email-sending functionality is working correctly.</p><p>If you are receiving this message, the API is functioning as expected.</p><br><p>Best regards,</p><p><b>diwascodes</b> || Backend Email API Services</p></div>"
+}
+*/

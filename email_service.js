@@ -11,19 +11,19 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-app.post("/api/send-email", (req, res) => {
+app.post("/api/send-email/:name/:receiver", (req, res) => {
     const mailOptions = {
         form: "diwasbk2k3@gmail.com",
-        to: "techdiwas19@gmail.com",
+        to: req.params.receiver,
         subject: req.body.subject,
-        text: req.body.text
+        html: `<span style="padding: 20px;"><b>Hello, ${req.params.name}</b></span>` + req.body.html
     }
 
     transporter.sendMail(mailOptions, (err, info) => {
         if (err) {
             res.send("Email Operation Failed! Please try again later.")
         } else {
-            res.send(`Email sent successfully to ${mailOptions.to}`)
+            res.send({message:`Email sent successfully to ${mailOptions.to}`, success:true})
         }
     })
 })
